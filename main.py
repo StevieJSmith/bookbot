@@ -1,12 +1,17 @@
 def main():
     with open("books/frankenstein.txt") as f:
         file_contents = f.read()
-        count_words(file_contents)
+        print("==============================================")
+        print("--- Begin report of books/frankenstein.txt ---")
+        print("==============================================")
+        print(f"{count_words(file_contents)} words found in the book")
         print("------")
         count_characters(file_contents)
+        print("------")
+        print("--- End report ---")
 
 def count_words(text):
-    print(len(text.split()))
+    return len(text.split())
 
 def count_characters(text):
     character_dict = {}
@@ -17,7 +22,10 @@ def count_characters(text):
             character_dict[letter] = 1
         elif letter in character_dict:
             character_dict[letter] += 1
-    print(character_dict)
+    
+    for character in character_dict:
+        if ord(character) >= 97 and ord(character) <= 122:
+            print(f"The '{character}' character was found {character_dict[character]} times")
 
 
 main()
