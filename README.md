@@ -1,2 +1,2 @@
 # bookbot
-Python mini project
+BookBot is my first project!
